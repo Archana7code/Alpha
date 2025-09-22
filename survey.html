@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Insights: Survey Report</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+       .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 15px 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* left side */
+.website-name {
+    color: #4da6ff;
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1; /* takes space on left */
+}
+
+/* center side */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex: 2; /* grows to take center space */
+}
+
+/* right side (optional placeholder if needed) */
+.navbar::after {
+    content: "";
+    flex: 1; /* balances the right side */
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4da6ff;
+}
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #4da6ff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p.intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .chart-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-and-text {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+
+        .chart-text {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+            border-left: 3px solid #4da6ff;
+        }
+
+        .chart-container {
+            background-color: #0d0d0d;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: inset 0 0 5px rgba(77, 166, 255, 0.3);
+            flex: 1;
+        }
+        
+        .chart-container canvas {
+            max-height: 250px;
+            width: 100% !important;
+            height: auto !important;
+        }
+        
+        .chart-and-text:nth-child(even) .chart-container {
+            order: 2;
+        }
+
+        .chart-and-text:nth-child(even) .chart-text {
+            order: 1;
+            text-align: right;
+            border-right: 3px solid #4da6ff;
+            border-left: none;
+        }
+
+        .opinions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .opinion-card {
+            background-color: #0d0d0d;
+            border-left: 5px solid #4da6ff;
+            padding: 20px;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .opinion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(77, 166, 255, 0.2);
+        }
+
+        .opinion-card::before {
+            content: '"';
+            font-size: 40px;
+            color: #4da6ff;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+
+        .opinion-card::after {
+            content: '"';
+            font-size: 40px;
+            color: #4da6ff;
+            position: absolute;
+            bottom: -15px;
+            right: 10px;
+        }
+
+        .opinion-card p {
+            margin: 0;
+            padding: 0;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .opinion-card .person {
+            color: #999;
+            font-size: 14px;
+            text-align: right;
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+            }
+
+            .navbar .website-name {
+                margin-bottom: 10px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+            
+            .chart-and-text {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .chart-and-text .chart-text {
+                border-left: none;
+                text-align: center;
+            }
+
+            .chart-and-text:nth-child(even) .chart-container {
+                order: initial;
+            }
+
+            .chart-and-text:nth-child(even) .chart-text {
+                order: initial;
+                border-right: none;
+                border-left: none;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="website-name">🚦 SmartTraffic</div>
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="analytical.html">Analytical</a>
+            <a href="survey.html">Survey</a>
+            <a href="aboutpage.html">About Us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="graphs" class="section">
+            <h2>📊 Traffic Problem Analytics</h2>
+            <p class="intro">Our initial survey reveals the scale of the traffic issue, setting the stage for our proposed solution.</p>
+            
+            <div class="chart-layout">
+                <div class="chart-and-text">
+                    <div class="chart-container">
+                        <canvas id="commuteTimeChart"></canvas>
+                    </div>
+                    <div class="chart-text">
+                        <h3>Daily Commute Time</h3>
+                        <p>A significant portion of our survey respondents reported spending *30 to 60 minutes or more* on their daily commute. This data highlights the substantial time loss experienced by commuters, directly impacting productivity and quality of life.</p>
+                    </div>
+                </div>
+                
+                <div class="chart-and-text">
+                    <div class="chart-container">
+                        <canvas id="frustrationChart"></canvas>
+                    </div>
+                    <div class="chart-text">
+                        <h3>Reported Frustration Levels</h3>
+                        <p>This graph illustrates the high level of frustration caused by traffic. The majority of commuters rated their daily traffic frustration as *"High" or "Very High"*. This emotional toll is a key motivator for finding a smarter solution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="opinions" class="section">
+            <h2>🗣 What People Are Saying</h2>
+            <p class="intro">Direct quotes from commuters highlighting their daily challenges with traffic congestion.</p>
+            <div class="opinions-grid">
+                <div class="opinion-card">
+                    <p>“Every morning, I lose an hour to traffic. It’s frustrating because the lights just don't seem to adapt to the real-time flow of cars.”</p>
+                    <span class="person">- Sarah, Daily Commuter</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“Some intersections are just a nightmare. One side is completely empty, while the other is backed up for blocks, all because of a static timer.”</p>
+                    <span class="person">- Mark, Delivery Driver</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“The lack of logic in traffic light timing makes no sense. I've been late for so many appointments due to completely avoidable congestion.”</p>
+                    <span class="person">- Emily, Student</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“It’s not just about being late. The stress of sitting in traffic every day has a real impact on my mental health. This needs a smart solution.”</p>
+                    <span class="person">- David, Office Worker</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“I've seen the same light cycle for years. Traffic patterns change, but the lights never do. It's the most inefficient part of my day.”</p>
+                    <span class="person">- Jessica, Sales Representative</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“We need a system that thinks. Right now, it feels like the lights are working against me, not helping me get to where I need to be.”</p>
+                    <span class="person">- Chris, Local Business Owner</span>
+                </div>
+                <div class="opinion-card">
+                    <p>“Sometimes I feel like I could walk faster than my car is moving in gridlock. It's a waste of time and fuel.”</p>
+                    <span class="person">- Alex, Parent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const commuteData = {
+            labels: ['< 30 min', '30-60 min', '60-90 min', '> 90 min'],
+            datasets: [{
+                label: 'Commuters',
+                data: [15, 45, 25, 15],
+                backgroundColor: ['#4da6ff', '#007acc', '#0059b3', '#004080'],
+                borderColor: '#1a1a1a',
+                borderWidth: 2
+            }]
+        };
+
+        const frustrationData = {
+            labels: ['Very Low', 'Low', 'Moderate', 'High', 'Very High'],
+            datasets: [{
+                label: 'Frustration Level',
+                data: [5, 10, 30, 40, 15],
+                fill: false,
+                borderColor: '#4da6ff',
+                tension: 0.3
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: false,
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#333'
+                    },
+                    ticks: {
+                        color: '#e0e0e0'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: '#333'
+                    },
+                    ticks: {
+                        color: '#e0e0e0'
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuad'
+            }
+        };
+
+        new Chart(document.getElementById('commuteTimeChart'), {
+            type: 'doughnut',
+            data: commuteData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#e0e0e0',
+                            usePointStyle: true,
+                        }
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutQuad'
+                }
+            }
+        });
+
+        new Chart(document.getElementById('frustrationChart'), {
+            type: 'line',
+            data: frustrationData,
+            options: options
+        });
+
+        // Intersection Observer for fade-in effect on scroll
+        const sections = document.querySelectorAll('.section');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

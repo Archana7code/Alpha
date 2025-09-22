@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - TrafficWise</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    /* Navbar */
+    nav {
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: center; /* Center contents horizontally */
+  align-items: center;
+  padding: 16px 40px;
+  position: relative; /* Needed for absolute positioning */
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  font-weight: bold;
+  position: absolute;
+  left: 40px; /* Adjust spacing from the left */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: #3b82f6;
+}
+
+    
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 280px;
+      
+    }
+
+    h2 {
+      color: #3b82f6;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Demo Video */
+    .video-section {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    iframe {
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      max-width: 100%;
+    }
+
+    /* Buttons */
+    .resources {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .resources h2 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 20px;
+      margin: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn.github {
+      background-color: #2563eb;
+    }
+
+    .btn.github:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn.download {
+      background-color: #374151;
+    }
+
+    .btn.download:hover {
+      background-color: #1f2937;
+    }
+
+    .btn svg {
+      margin-right: 8px;
+    }
+    .team{
+        margin-left: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      iframe {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-title">🚦 SmartTraffic</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="analytical.html">Analytical</a></li>
+      <li><a href="survey.html">Survey</a></li>
+      <li><a href="aboutpage.html">About Us</a></li>
+    </ul>
+    
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>About the Project</h1>
+
+    <div class="section">
+      <!-- Project Overview -->
+      <div class="column">
+        <h2>Project Overview</h2>
+        <p>
+          Our Smart Traffic Control System uses AI to prioritize emergency vehicles, reduce congestion, and enhance pedestrian safety. It detects ambulance sirens to create green corridors, monitors vehicle and pedestrian density, and dynamically adjusts traffic signals in real-time. The solution is demonstrated using an Arduino Uno for practical, real-world application. Scalable and AI-driven, it offers a unified approach to managing traffic flow, emergencies, and road safety.
+        </p>
+        
+      </div>
+
+      <!-- Team Info -->
+      <div class="column team">
+        <h2>Team Information</h2>
+        <p><strong>Team Name:</strong> ALPHA</p>
+        <p><strong>College:</strong>INDRA GANDHI DELHI TECHNICAL UNIVERSITY</p>
+        
+      </div>
+    </div>
+
+    <!-- Demo Video -->
+    <div class="video-section">
+      <h2>Demo Video</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo Video" allowfullscreen></iframe>
+    </div>
+
+    <!-- Project Resources -->
+    <div class="resources">
+      <h2>Project Resources</h2>
+      <a href="#" class="btn github">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="white" viewBox="0 0 24 24">
+          <path d="M12 .297C5.373.297 0 5.67 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577V20.59c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.234 1.838 1.234 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 013.005-.404c1.02.005 2.045.137 3.005.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.911 1.23 3.221 0 4.61-2.805 5.625-5.475 5.92.429.372.81 1.102.81 2.222v3.293c0 .319.21.694.825.576C20.565 22.092 24 17.592 24 12c0-6.63-5.373-12-12-12z"/>
+        </svg>
+        GitHub Repository
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>
+

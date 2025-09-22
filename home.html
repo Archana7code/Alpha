@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrafficWise</title>
+  <style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #0b0f19;
+  color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn {
+  background: #007bff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #0d1117;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #007bff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a:hover {
+  color: #007bff;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.hero .highlight {
+  color: #007bff;
+}
+
+.hero p {
+  margin: 20px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #c9d1d9;
+}
+
+/* Status Sections */
+.status-section,
+.insights-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.status-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.icon {
+  font-size: 28px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.card small {
+  display: block;
+  margin-top: 5px;
+  color: #9ca3af;
+}
+
+.green {
+  color: #00ff6a;
+}
+
+.red {
+  color: #ff4d4d;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 20px 50px;
+  background: #0d1117;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;    /* Center items horizontally */
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center links */
+  margin-top: 10px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #9ca3af;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.footer-right {
+  margin-top: 10px;
+  color: #9ca3af;
+}
+
+.footer-left {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px; /* Add some space below the logo */
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🚦Smart<span>Traffic</span></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="analytical.html">Analytical</a></li>
+      <li><a href="survey.html">Survey</a></li>
+      <li><a href="aboutpage.html">About Us</a></li>
+    </ul>
+    <button class="btn">Start Live</button>
+  </nav>
+
+  <header class="hero">
+    <h1>Intelligent Traffic Management, <span class="highlight">Redefined.</span></h1>
+    <p>
+      Revolutionizing urban mobility with AI-powered solutions for smarter, safer, 
+      and more efficient traffic flow. Detect emergencies instantly and optimize 
+      signal timings in real-time.
+    </p>
+    <button class="btn">Start Live</button>
+  </header>
+
+  <section class="status-section">
+    <h2>Live System Status</h2>
+    <p>Real-time data from our intelligent network.</p>
+    <div class="status-cards">
+      <div class="card">
+        <i class="icon">🚗</i>
+        <h3>Total Vehicles</h3>
+        <p id="totalVehicles">4,821</p>
+      </div>
+      <div class="card">
+        <i class="icon">🚦</i>
+        <h3>Signal Status</h3>
+        <p id="signalStatus" class="green">Green Wave</p>
+      </div>
+      <div class="card">
+        <i class="icon">⚠</i>
+        <h3>Emergency Alerts</h3>
+        <p id="emergencyAlerts" class="red">2</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-section">
+    <h2>Real-Time System Insights</h2>
+    <p>Live statistics from our intelligent network.</p>
+    <div class="status-cards">
+      <div class="card">
+        <i class="icon">🚙</i>
+        <h3>Vehicles Detected</h3>
+        <p id="vehiclesDetected">12,456</p>
+        <small id="vehiclesChange">+12% from last hour</small>
+      </div>
+      <div class="card">
+        <i class="icon">💡</i>
+        <h3>Signal Status</h3>
+        <p id="optimizedStatus" class="green">Optimized</p>
+        <small>⚡ Continuously adapting</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">SmartTraffic</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-right">© 2025 TrafficWise. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Simulated Live Updates
+function updateSystemStatus() {
+  // Random vehicle count simulation
+  let totalVehicles = Math.floor(Math.random() * 5000) + 4000;
+  let vehiclesDetected = Math.floor(Math.random() * 15000) + 10000;
+  let emergencyAlerts = Math.floor(Math.random() * 5);
+
+  // Signal statuses
+  let signals = ["Green Wave", "Optimized", "Busy", "Congested"];
+  let randomSignal = signals[Math.floor(Math.random() * signals.length)];
+
+  // Update DOM
+  document.getElementById("totalVehicles").textContent = totalVehicles.toLocaleString();
+  document.getElementById("vehiclesDetected").textContent = vehiclesDetected.toLocaleString();
+  document.getElementById("emergencyAlerts").textContent = emergencyAlerts;
+
+  let signalElement = document.getElementById("signalStatus");
+  signalElement.textContent = randomSignal;
+  signalElement.className = (randomSignal === "Green Wave" || randomSignal === "Optimized") ? "green" : "red";
+}
+
+// Run updates every 5 seconds
+setInterval(updateSystemStatus, 5000);
+
+// Initial load
+updateSystemStatus();
+
+  </script>
+</body>
+</html>

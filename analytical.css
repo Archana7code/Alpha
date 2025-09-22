@@ -1,0 +1,128 @@
+/* Reset and basic settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #1e2332;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #2a2e43;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  color: #4FC3F7;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: auto; /* Logo stays left, pushes menu to centre or right */
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0 auto; /* Center the menu */
+}
+
+.nav-item + .nav-item {
+  margin-left: 30px; /* spacing between links */
+}
+
+.nav-link {
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #4FC3F7;
+  color: #1e2332;
+}
+
+/* Rest of the styles unchanged */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #2a2e43;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+.logs {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0e0e0;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #3a3f55;
+  text-align: left;
+}
+
+th {
+  background-color: #2f3348;
+  color: #ffffff;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.status.normal { background-color: #28a745; color: #fff; }
+.status.info   { background-color: #17a2b8; color: #fff; }
+.status.warning{ background-color: #ffc107; color: #000; }
+.status.alert  { background-color: #dc3545; color: #fff; }
+.status.critical { background-color: #8b0000; color: #fff; }
